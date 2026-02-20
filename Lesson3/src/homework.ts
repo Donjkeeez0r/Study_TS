@@ -37,8 +37,9 @@ class Cart {
         this._items.push(item);
     }
 
-    public get Items() {
-        return this._items;
+    public getItems() {
+        const items = [...this._items];
+        return items;
     }
 
     public clear() {
@@ -46,19 +47,8 @@ class Cart {
     }
 }
 
-const firstCart = new Cart(['Car', 'PC', 'Sony']);
-console.log(firstCart.Items);
-firstCart.addItem('PlayStation');
-console.log(firstCart.Items);
-firstCart.clear();
-console.log(firstCart.Items);
-console.log();
-
-const cart = new Cart(['TEST1', 'TEST2']);
-cart.Items.push('test3');
-console.log(cart.Items);
-
-const cart2 = new Cart(['t1', 't2']);
-console.log(cart2.Items);
-cart2.Items.push('t3');
-console.log(cart2.Items);
+const firstCart = new Cart(['Tv', 'Phone', 'PC']);
+console.log(`В моей корзине: ${firstCart.getItems()}`);
+console.log(`Моя корзина после очистки: ${firstCart.clear()}`);
+firstCart.addItem('Sony');
+console.log(firstCart.getItems());
