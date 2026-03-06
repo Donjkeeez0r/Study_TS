@@ -115,8 +115,8 @@ const commands = [
     new HelpCommand()
 ];
 
-for (const command of commands) {
-    bot.registerCommand(command);
-};
+// for (const command of commands) {
+//     bot.registerCommand(command);
+// };
 
 bot.onMessage('/help')
