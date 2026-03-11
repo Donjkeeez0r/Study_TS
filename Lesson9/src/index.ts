@@ -52,7 +52,7 @@ interface IPublisher {
     notify(eventName: string, data: any): void;
 };
 
-// класс конкретного издателя (авторизация пользователей)
+// Издатель
 class UserAuthService implements IPublisher {
     // список всех подписчиков
     private _subscribers: ISubscriber[] = [];
@@ -81,7 +81,7 @@ class UserAuthService implements IPublisher {
     }
 };
 
-// класс subscriber'ов
+// Подписчик 1
 class EmailService implements ISubscriber {
     update(eventName: string, data: any): void {
         if (eventName === 'USER_REGISTERED') {
@@ -90,6 +90,7 @@ class EmailService implements ISubscriber {
     }
 };
 
+// Подписчик 2
 class BonusService implements ISubscriber {
     update(eventName: string, data: any): void {
         if (eventName === 'USER_REGISTERED') {
@@ -98,6 +99,7 @@ class BonusService implements ISubscriber {
     }
 };
 
+// Подписчик 3
 class LoggerService implements ISubscriber {
     update(eventName: string, data: any): void {
         console.log(`Событие: ${eventName} с данными: `, data);
